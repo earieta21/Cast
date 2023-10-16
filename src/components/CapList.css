@@ -1,0 +1,6 @@
+.CapList {
+    display: flex;
+    text-align: center;
+    color: aqua;
+    margin: 15px, 15px, 15px;
+}

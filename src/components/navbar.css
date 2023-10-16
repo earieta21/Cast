@@ -1,0 +1,32 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    color: #ffffff;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar {
+    border-width: 15px;
+    border-color: brown;
+    border-style: solid;
+}
+
+.links {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 20px;
+    font-size: 25px;
+}

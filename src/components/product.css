@@ -1,0 +1,22 @@
+.product {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.description {
+    border: 1px solid #098715;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    background-color: #53CE5F;
+    box-shadow: 0 2px 4px rgb(red, green, blue);
+}
+
+/*.addtocart {
+    
+  
+
+
+}
