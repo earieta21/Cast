@@ -3,39 +3,30 @@ import Products from "../components/Products";
 
 export const ShopContext = createContext(null);
 
-const getCart = () => {
-    let cart = {}
-    for (let i = 1; i < Products.lenght + 1; i++) {
-        cart[i] = 0;
-    }
-    return cart;
-};
 
 export const ShopContextProvider = (props) => {
-    const [cartItems, setCartItems] = useState(getCart());
+    const [cartItems, setCartItems] = useState([]);
 
     const getTotalCart = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
-            if (cartItems[item] > 0) {
-                let itemInfo = Products.find((product) => product.id === Number (item));
-                totalAmount += cartItems[item] * itemInfo.price
-            }
+            totalAmount += item.price * item.quantity
     }
     return totalAmount;
     };
 
     const addToCart = (id) => {
-        setCartItems ((prev) => ({...prev, [id]: prev[id] + 1}));
+        setCartItems ((prev) => [...prev, id]);
     };
 
     const removeFromCart = (id) => {
-        setCartItems ((prev) => ({...prev, [id]: prev[id] - 1}));
+        setCartItems ((prev) => prev.filter((itemId) => itemId !== id));
     };
 
     const updateCartItem = (newAmount, itemId) => {
-        setCartItems ((prev) => ({...prev, [itemId]: newAmount}))
-    }
+        setCartItems ((prev) => 
+        prev.map((item) => (item === itemId ? newAmount : item)));
+    };
 
     const contextValue = { 
         cartItems, 
