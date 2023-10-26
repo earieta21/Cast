@@ -4,7 +4,7 @@ import product3 from './assets/3.jpeg;'
 import product4 from './assets/4.jpeg;'
 import product5 from './assets/5.webp;'
 import product6 from './assets/6.jpeg;'*/
-
+// instead of hardcoding products, use the API
 const Products = [
     {
         id: 1,

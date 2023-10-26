@@ -13,3 +13,13 @@ Currently, two official plugins are available:
 # capstone
 # capstone
 # Cast
+
+
+** NOTES 10/25 ** 
+
+[ ] Context API - currently your cartItems is an object - it is much easier to work with an array (we started changing this today)
+
+- https://dev.to/anne46/cart-functionality-in-react-with-context-api-2k2f
+
+[ ] When debugging, it's helpful to comment out parts of the code that you think may be causing that bug. This will help you rule out where a bug is. 
+
