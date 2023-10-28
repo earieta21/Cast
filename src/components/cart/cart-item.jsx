@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 
 const CartItem = (props) => {
     const { id, name, price} = props.data;
-    const {CartItems, addToCart, removeFromCart} = useContext(ShopContext);
+    const {CartItems, addToCart, removeFromCart} = useContext(ShopContext); // cartItems should not be capitalized 
 
     return (
         <div className="cartItem">
@@ -15,8 +15,8 @@ const CartItem = (props) => {
                 </p>   
                 <div className="countHandler">
                     <button onClick={() => removeFromCart(id)}>-</button>
-                    <input value={CartItems[id]} onChange={(e) => updateCartItem(Number(e.target.value), id)}/>
-                    <button onClick={() => addToCart(id)}>+</button>
+                    <input value={CartItems[id]} onChange={(e) => updateCartItem(Number(e.target.value), id)}/>  {/* i like this! the value will need to change*/}
+                    <button onClick={() => addToCart(id)}>+</button> {/* pass in product instead of id*/}
                 </div>
             </div>
         </div>
