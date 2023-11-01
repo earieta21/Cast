@@ -14,7 +14,6 @@ function App () {
         <ShopContextProvider>
          <Navbar />
           <Routes>
-            <Route path="/register" element = {<RegisterLogin/>}/>
             <Route path="/" element = {<Shop />}/>
             <Route path="/cart" element = {<Cart />}/>
           </Routes>

@@ -21,6 +21,7 @@ export const Cart = () => {
                     {cartItems.map((item) => (
                         <div key = {item.id} className="items-container">
                             <div className="item-details">
+                                <p className="product-image">{item.productImage}</p>
                              <p className="items">{item.productName} ({item.quantity})</p>
                             </div>
                             <div className="items-actions">
