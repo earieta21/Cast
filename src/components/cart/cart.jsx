@@ -1,33 +1,45 @@
 import React, {useContext} from "react";
-import Products from "../Products";
-import CartItem from "./cart-item";
 import {ShopContext} from "../../context/shop-context";
 import { useNavigate } from "react-router-dom";
+import './cart.css';
 
 export const Cart = () => {
     const { cartItems, getTotalCart } = useContext(ShopContext);
-    const totalCart = getTotalCart();
+    const {removeFromCart} = useContext(ShopContext);
+    const {addToCart} = useContext(ShopContext);
+    const {removeAllItems} = useContext(ShopContext);
     const navigate = useNavigate();
-    console.log(cartItems,'cart')
-    return (
+    return (  
         <div className="cart">
-            <div>
-                <h1>cart</h1>
-            </div>
-            <div className="cartItems">
-                {Products.map((product) => {
-                    if (cartItems[product.id] !== 0) {
-                        return <CartItem data={product} />;
-                    }
-                })}
-            </div>
-            <div className="checkout">
-                {totalCart === 0 && <p>Your cart is empty</p>}
-                <p>Subtotal: ${totalCart}</p>
-                <button onClick={() => navigate('/')}>Continue Shopping</button>
-                <button>Checkout</button>
-            </div>
-
+            <h1 className="cart-tittle">Cart</h1>
+            <button onClick={removeAllItems}
+            className="remove-all-items">Remove all Items</button>
+            {cartItems.lenght === 0 ? (
+                <p className="cart-empty">Cart is Empty</p>
+            ):(
+                <>
+                    {cartItems.map((item) => (
+                        <div key = {item.id} className="items-container">
+                            <div className="item-details">
+                             <p className="items">{item.productName} ({item.quantity})</p>
+                            </div>
+                            <div className="items-actions">
+                             <button onClick={() => removeFromCart(item.id)}
+                              className="remove-from-cart">-</button>
+                             <p className="item-quantity">{item.quantity}</p>
+                             <button onClick={() => addToCart(item)} 
+                              className="add-to-cart">+</button>
+                            </div>
+                        </div>
+                ))}
+                </>
+            )}
+                <p className="subtotal">Subtotal: ${getTotalCart}</p>
+                <div className="cart-buttons">
+                    <button onClick={() => navigate('/')}
+                    className="continue-shopping">Continue Shopping</button>
+                    <button className="checkout-button">Checkout</button>
+                </div>
         </div>
     );
 }
